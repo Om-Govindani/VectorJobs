@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Freelancer.css"
+import "../styles/Freelancer.css"
 function ClientReg() {
   const [isSignIn, setIsSignIn] = useState(true);
 
@@ -44,16 +44,16 @@ function ClientReg() {
 }
 
   return (
-    <div id="form" className="m-autor  h-auto hidden">
+    <div id="form" className="m-auto h-auto">
       <div className="main">
         <input type="checkbox" id="chk" aria-hidden="true" />
         <div className="login">
           <form className="form" onSubmit={handleLogin}>
             <label htmlFor="chk" aria-hidden="true">
-              Log in
+              Sign in
             </label>
             <input
-              className="input"
+              className="input ring-1 ring-zinc-400 focus:ring-2 focus:ring-indigo-600 focus:shadow-lg"              
               type="email"
               name="Email"
               placeholder="Email"
@@ -62,7 +62,7 @@ function ClientReg() {
               required=""
             />
             <input
-              className="input"
+              className="input ring-1 ring-zinc-400 focus:ring-2 focus:ring-indigo-600 focus:shadow-lg"              
               type="password"
               name="password"
               placeholder="Password"
@@ -70,16 +70,16 @@ function ClientReg() {
               onChange={changeClient}
               required=""
             />
-            <button>Log in</button>
+            <button>Sign In</button>
           </form>
         </div>
         <div className="register">
           <form className="form" onSubmit={handleRegister}>
             <label htmlFor="chk" aria-hidden="true">
-              Register
+              Sign Up
             </label>
             <input
-              className="input"
+              className="input focus:ring-2 focus:ring-zinc-400 focus:shadow-lg" 
               type="text"
               name="UserName"
               id="id"
@@ -89,7 +89,7 @@ function ClientReg() {
             onChange={changeClient}
             />
             <input
-              className="input"
+              className="input focus:ring-2 focus:ring-zinc-400 focus:shadow-lg" 
               type="email"
               name="Email"
               id="email"
@@ -99,7 +99,7 @@ function ClientReg() {
             onChange={changeClient}
             />
             <input
-              className="input"
+              className="input focus:ring-2 focus:ring-zinc-400 focus:shadow-lg" 
               type="password"
               name="password"
               id="password"
@@ -108,7 +108,7 @@ function ClientReg() {
               value={client.password}
             onChange={changeClient}
             />
-            <button>Register</button>
+            <button>Sign Up</button>
           </form>
         </div>
       </div>

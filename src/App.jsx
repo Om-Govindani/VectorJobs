@@ -1,8 +1,7 @@
 
-import './App.css'
-import LandingPage from './LandingPage'
-import FormComponent from './FormComponent'
-import Freelancer from './Freelancer'
+import "./styles/App.css"
+import LandingPage from './components/LandingPage'
+
 function App() {
  
 
