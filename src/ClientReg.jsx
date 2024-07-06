@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Freelancer.css"
-function Freelancer() {
+function ClientReg() {
   const [isSignIn, setIsSignIn] = useState(true);
 
   const toggleForm = () => {
@@ -8,7 +8,7 @@ function Freelancer() {
   };
 
   const [visible , setVisibility]=useState(false)
-  const [freelancer, setFreelancer] = useState({
+  const [client, setClient] = useState({
     UserName: "",
     Email: "",
     password: ""
@@ -24,8 +24,8 @@ function Freelancer() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(freelancer);
-    setFreelancer({
+    console.log(client);
+    setClient({
       UserName: "",
       Email: "",
       password: ""
@@ -36,7 +36,7 @@ function Freelancer() {
 }
 
   return (
-    <div id="Form2" className="m-autor  h-auto hidden">
+    <div id="form" className="m-autor  h-auto hidden">
       <div className="main">
         <input type="checkbox" id="chk" aria-hidden="true" />
         <div className="login">
@@ -95,4 +95,4 @@ function Freelancer() {
   );
 }
 
-export default Freelancer;
+export default ClientReg;
