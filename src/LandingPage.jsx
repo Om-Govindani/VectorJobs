@@ -59,8 +59,9 @@ export default function LandingPage() {
         </div>
       </div>
     </div>
+    <Freelancer/>
     <ClientReg />
-        <Freelancer/>
+        
         </>
     );
 }

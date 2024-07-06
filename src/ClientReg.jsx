@@ -14,15 +14,15 @@ function ClientReg() {
     password: ""
   });
 
-  function changeFreelancer(event) {
+  function changeClient(event) {
     const { name, value } = event.target;
-    setFreelancer(prevState => ({
+    setClient(prevState => ({
       ...prevState,
       [name]: value
     }));
   }
 
-  function handleSubmit(event) {
+  function handleRegister(event) {
     event.preventDefault();
     console.log(client);
     setClient({
@@ -30,6 +30,14 @@ function ClientReg() {
       Email: "",
       password: ""
     });
+  }
+  function handleLogin(event){
+    event.preventDefault();
+    console.log(client);
+    setClient({
+        Email: "",
+        password: ""
+    })
   }
   function toggle(){
     setVisibility(!visible)
@@ -40,52 +48,65 @@ function ClientReg() {
       <div className="main">
         <input type="checkbox" id="chk" aria-hidden="true" />
         <div className="login">
-          <form className="form">
+          <form className="form" onSubmit={handleLogin}>
             <label htmlFor="chk" aria-hidden="true">
               Log in
             </label>
             <input
               className="input"
               type="email"
-              name="email"
+              name="Email"
               placeholder="Email"
+              value={client.Email}
+              onChange={changeClient}
               required=""
             />
             <input
               className="input"
               type="password"
-              name="pswd"
+              name="password"
               placeholder="Password"
+              value={client.password}
+              onChange={changeClient}
               required=""
             />
             <button>Log in</button>
           </form>
         </div>
         <div className="register">
-          <form className="form">
+          <form className="form" onSubmit={handleRegister}>
             <label htmlFor="chk" aria-hidden="true">
               Register
             </label>
             <input
               className="input"
               type="text"
-              name="txt"
+              name="UserName"
+              id="id"
               placeholder="Username"
-              required=""
+              required
+              value={client.UserName}
+            onChange={changeClient}
             />
             <input
               className="input"
               type="email"
-              name="email"
+              name="Email"
+              id="email"
               placeholder="Email"
               required=""
+              value={client.Email}
+            onChange={changeClient}
             />
             <input
               className="input"
               type="password"
-              name="pswd"
+              name="password"
+              id="password"
               placeholder="Password"
               required=""
+              value={client.password}
+            onChange={changeClient}
             />
             <button>Register</button>
           </form>

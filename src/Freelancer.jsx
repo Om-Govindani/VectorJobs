@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Freelancer.css"
-function Freelancer() {
+function FreelancerReg() {
   const [isSignIn, setIsSignIn] = useState(true);
 
   const toggleForm = () => {
@@ -8,7 +8,7 @@ function Freelancer() {
   };
 
   const [visible , setVisibility]=useState(false)
-  const [freelancer, setFreelancer] = useState({
+  const [Freelancer, setFreelancer] = useState({
     UserName: "",
     Email: "",
     password: ""
@@ -22,14 +22,22 @@ function Freelancer() {
     }));
   }
 
-  function handleSubmit(event) {
+  function handleRegister(event) {
     event.preventDefault();
-    console.log(freelancer);
+    console.log(Freelancer);
     setFreelancer({
       UserName: "",
       Email: "",
       password: ""
     });
+  }
+  function handleLogin(event){
+    event.preventDefault();
+    console.log(Freelancer);
+    setFreelancer({
+        Email: "",
+        password: ""
+    })
   }
   function toggle(){
     setVisibility(!visible)
@@ -40,52 +48,65 @@ function Freelancer() {
       <div className="main">
         <input type="checkbox" id="chk" aria-hidden="true" />
         <div className="login">
-          <form className="form">
+          <form className="form" onSubmit={handleLogin}>
             <label htmlFor="chk" aria-hidden="true">
               Log in
             </label>
             <input
               className="input"
               type="email"
-              name="email"
+              name="Email"
               placeholder="Email"
+              value={Freelancer.Email}
+              onChange={changeFreelancer}
               required=""
             />
             <input
               className="input"
               type="password"
-              name="pswd"
+              name="password"
               placeholder="Password"
+              value={Freelancer.password}
+              onChange={changeFreelancer}
               required=""
             />
             <button>Log in</button>
           </form>
         </div>
         <div className="register">
-          <form className="form">
+          <form className="form" onSubmit={handleRegister}>
             <label htmlFor="chk" aria-hidden="true">
               Register
             </label>
             <input
               className="input"
               type="text"
-              name="txt"
+              name="UserName"
+              id="id"
               placeholder="Username"
-              required=""
+              required
+              value={Freelancer.UserName}
+            onChange={changeFreelancer}
             />
             <input
               className="input"
               type="email"
-              name="email"
+              name="Email"
+              id="email"
               placeholder="Email"
               required=""
+              value={Freelancer.Email}
+            onChange={changeFreelancer}
             />
             <input
               className="input"
               type="password"
-              name="pswd"
+              name="password"
+              id="password"
               placeholder="Password"
               required=""
+              value={Freelancer.password}
+            onChange={changeFreelancer}
             />
             <button>Register</button>
           </form>
@@ -95,4 +116,4 @@ function Freelancer() {
   );
 }
 
-export default Freelancer;
+export default FreelancerReg;
