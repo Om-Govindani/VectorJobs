@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/Freelancer.css"
-import axios from 'axios'
+import axios from 'axios'//axios
 
 function ClientReg() {
   const [isSignIn, setIsSignIn] = useState(true);
