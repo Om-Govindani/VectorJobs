@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../styles/Freelancer.css"
+import axios from 'axios'
+
 function FreelancerReg() {
   const [isSignIn, setIsSignIn] = useState(true);
 
@@ -22,7 +24,7 @@ function FreelancerReg() {
     }));
   }
 
-  function handleRegister(event) {
+  async function handleRegister(event) {
     event.preventDefault();
     console.log(Freelancer);
     setFreelancer({
@@ -30,14 +32,26 @@ function FreelancerReg() {
       Email: "",
       password: ""
     });
+    await axios.post("http://localhost:8080/freelancer/signup",{Freelancer}).then((res)=>{
+      alert(res.data);
+      console.log("POST request send sucessfully");
+    }).catch((err)=>{
+      console.log(err);
+    });
   }
-  function handleLogin(event){
+  async function handleLogin(event){
     event.preventDefault();
     console.log(Freelancer);
     setFreelancer({
         Email: "",
         password: ""
     })
+    await axios.post("http://localhost:8080/freelancer/login",{Freelancer}).then((res)=>{
+      alert(res.data);
+      console.log("POST request send sucessfully");
+    }).catch((err)=>{
+      console.log(err);
+    });
   }
   function toggle(){
     setVisibility(!visible)
